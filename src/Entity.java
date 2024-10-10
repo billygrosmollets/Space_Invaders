@@ -2,7 +2,7 @@
 
 import javax.swing.ImageIcon;
 
-class Entity extends Observable
+class Entity
 {
     int x, y;
     ImageIcon image;
@@ -65,7 +65,7 @@ class Entity extends Observable
     {
         x += shiftX;
         y += shiftY;
-        notifyObserver();
+        //notifyObserver();
     }
 
     public boolean collides(final Entity e)

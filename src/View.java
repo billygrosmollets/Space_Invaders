@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.util.Hashtable;
 
-public class View implements Observer
+public class View
 {
     //private Pong pong;
     private JFrame frame = new JFrame();
@@ -15,7 +15,7 @@ public class View implements Observer
     private Hashtable<Entity, JLabel> table;
 
 
-    public View(Pong pong)
+    public View(SpaceInvaders pong)
     {
         //this.pong = pong;
         panel.setLayout(null);
@@ -53,27 +53,27 @@ public class View implements Observer
         frame.getContentPane().repaint();
     }*/
 
-    @Override
-    public void update(Observable obs)
-    {
-        Entity entity = (Entity) obs;
-        JLabel jlabel = (JLabel) table.get(obs);
-        if (!((Entity) obs).isalive() && jlabel != null)
-        {
-            panel.remove(jlabel);
-            table.remove(entity);
-        } else if (((Entity) obs).isalive() && jlabel == null)
-        {
-            jlabel = new JLabel();
-            jlabel.setIcon(((Entity) obs).getimage());
-            table.put((Entity) obs, jlabel);
-            panel.add(jlabel);
-            jlabel.setBounds(((Entity) obs).getX(), ((Entity) obs).getY(), 60, 20);
-        } else if (((Entity) obs).isalive() && jlabel != null)
-            jlabel.setBounds(((Entity) obs).getX(), ((Entity) obs).getY(), 60, 20);
-
-        frame.getContentPane().repaint();
-    }
+//    @Override
+//    public void update(Observable obs)
+//    {
+//        Entity entity = (Entity) obs;
+//        JLabel jlabel = (JLabel) table.get(obs);
+//        if (!((Entity) obs).isalive() && jlabel != null)
+//        {
+//            panel.remove(jlabel);
+//            table.remove(entity);
+//        } else if (((Entity) obs).isalive() && jlabel == null)
+//        {
+//            jlabel = new JLabel();
+//            jlabel.setIcon(((Entity) obs).getimage());
+//            table.put((Entity) obs, jlabel);
+//            panel.add(jlabel);
+//            jlabel.setBounds(((Entity) obs).getX(), ((Entity) obs).getY(), 60, 20);
+//        } else if (((Entity) obs).isalive() && jlabel != null)
+//            jlabel.setBounds(((Entity) obs).getX(), ((Entity) obs).getY(), 60, 20);
+//
+//        frame.getContentPane().repaint();
+//    }
 
     public JFrame getFrame()
     {

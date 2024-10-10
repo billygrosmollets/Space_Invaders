@@ -8,12 +8,12 @@ import javax.swing.Timer;
 
 public class Controller implements KeyListener, ActionListener
 {
-    private Pong pong;
+    private SpaceInvaders spaceInvaders;
     private View view;
 
-    public Controller(Pong pong, View view)
+    public Controller(SpaceInvaders pong, View view)
     {
-        this.pong = pong;
+        this.spaceInvaders = pong;
         this.view = view;
         Timer t = new Timer(10, this);
         t.start();
@@ -26,9 +26,9 @@ public class Controller implements KeyListener, ActionListener
     @Override
     public void actionPerformed(ActionEvent e)
     {
-        if (pong.getBall() != null)
+        if (spaceInvaders.getBall() != null)
         {
-            pong.moveBall();
+            spaceInvaders.moveBall();
         }
         //view.update();
     }
@@ -39,10 +39,10 @@ public class Controller implements KeyListener, ActionListener
         switch (kev.getKeyCode())
         {
             case KeyEvent.VK_LEFT:
-                pong.moveLeft();
+                spaceInvaders.moveLeft();
                 break;
             case KeyEvent.VK_RIGHT:
-                pong.moveRight();
+                spaceInvaders.moveRight();
                 break;
         }
         //view.update();
